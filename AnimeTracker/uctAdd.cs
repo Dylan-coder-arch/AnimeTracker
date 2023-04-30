@@ -37,8 +37,7 @@ namespace AnimeTracker
             MySqlConnection conn = new MySqlConnection(constring);
             conn.Open();
 
-            // you need to extract the text values here and find a way to pass usrID to this as well :sob:
-            // also update the query in order to not be vulnerable to sql injection with parameters instead!
+            
             int usrID = Convert.ToInt32(Form1.userID);
             string animeName = ktxbName.Text;
             decimal animeRating = knudRating.Value;

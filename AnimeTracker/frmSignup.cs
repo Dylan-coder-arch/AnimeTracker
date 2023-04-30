@@ -38,7 +38,7 @@ namespace AnimeTracker
 
                 if (check_password(password)) 
                 {
-                    // this is where we will now insert 
+                    
                     string server = "127.0.0.1";
                     string port = "3306";
                     string db = "AnimeTrackingSystem";
@@ -70,7 +70,7 @@ namespace AnimeTracker
 
         private bool check_password(string pwd)
         {
-            if (pwd.Length < 8) // stop it
+            if (pwd.Length < 8) 
             {
                 MessageBox.Show("Please ensure your password is at least 8 characters long");
                 
@@ -95,7 +95,7 @@ namespace AnimeTracker
 
                 if (!char.IsLetterOrDigit(c))
                 {
-                    // special char
+                    
                     specialChar++;
                 }
 

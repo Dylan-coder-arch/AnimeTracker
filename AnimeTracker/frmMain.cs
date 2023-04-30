@@ -42,7 +42,7 @@ namespace AnimeTracker
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); // this closes the entire application which is what we want?
+            Application.Exit(); 
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)
@@ -55,12 +55,12 @@ namespace AnimeTracker
             // Settings - Theme 
             // Font sizing maybe ?
 
-            // etc?
+            
         }
 
         private void kbtnAnimeTrackMenu_Click(object sender, EventArgs e)
         {
-            // this will show the dash
+            
             uctDash dash = new uctDash();
             addUserControl(dash, pnlContent);
         }
