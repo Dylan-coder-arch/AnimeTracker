@@ -44,7 +44,7 @@ namespace AnimeTracker
             string userName = ktbxUsername.Text;
             string userPassword = ktbxPassword.Text;
             
-            query = $"SELECT usrID, usrName, usrEmail, usrPassword FROM USERS WHERE usrEmail = '@usrNameParam' AND usrPassword = '@passwordParam'";
+            query = $"SELECT usrID, usrName, usrEmail, usrPassword FROM USERS WHERE usrEmail = @usrNameParam AND usrPassword = @passwordParam";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@usrNameParam", userName);
             cmd.Parameters.AddWithValue("@passwordParam", userPassword);
@@ -56,18 +56,17 @@ namespace AnimeTracker
             
 
             while (reader.Read())
-            {
+            {   
                 userID = reader.GetValue(0).ToString();
                 refUserName = reader.GetValue(1).ToString();
             }
 
+            
             if (userID == null)
             {
                 MessageBox.Show("Invalid details! please try again!");
                 return;
             }
-
-            
 
             
             reader.Close();
