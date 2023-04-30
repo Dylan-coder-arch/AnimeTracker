@@ -21,7 +21,7 @@ namespace AnimeTracker
         {
             InitializeComponent();
             
-            // then I need to clean up code for sql injection possibilities -
+            
 
         }
 
@@ -67,7 +67,7 @@ namespace AnimeTracker
                 return;
             }
 
-            // need to extract the usrID
+            
 
             
             reader.Close();
@@ -80,10 +80,7 @@ namespace AnimeTracker
 
         private void kbtnSignup_Click(object sender, EventArgs e)
         {
-            // Show dialog sign up form 
-            // this will insert the person into the database 
-            // once they sign up they need to sign in regardless 
-            // due to the way in which i handle stuff
+            
             frmSignup signupForm = new frmSignup();
             signupForm.ShowDialog();
         }
