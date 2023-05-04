@@ -6,19 +6,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AnimeTracker
 {
+    
     public partial class frmSignup : KryptonForm
     {
         public frmSignup()
         {
             InitializeComponent();
         }
+
+        
 
         private void kbtnSignup_Click(object sender, EventArgs e)
         {
@@ -49,12 +54,17 @@ namespace AnimeTracker
                     MySqlConnection conn = new MySqlConnection(constring);
                     conn.Open();
 
-                    query = $"INSERT INTO USERS(usrName, usrEmail, usrPassword) VALUES (@usrNameParam, @usrEmailParam, @usrPassParam)";
+                    // method to create a salted password 
+                    string salt = CreateSalt(64);
+                    string hashedPassword = HashedPassword(password, salt);
+
+                    query = $"INSERT INTO USERS(usrName, usrEmail, usrPassword, usrSalt) VALUES (@usrNameParam, @usrEmailParam, @usrPassParam, @usrSaltParam)";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@usrNameParam", name);
                     cmd.Parameters.AddWithValue("@usrEmailParam", email);
-                    cmd.Parameters.AddWithValue("@usrPassParam", password);
+                    cmd.Parameters.AddWithValue("@usrPassParam", hashedPassword);
+                    cmd.Parameters.AddWithValue("@usrSaltParam", salt);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Sign up completed, please log in!");
@@ -113,6 +123,27 @@ namespace AnimeTracker
             }
 
         }
+        public string CreateSalt(int size)
+        {
+            var rng = new RNGCryptoServiceProvider();
+            var buff = new byte[size];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
+        
+        public string HashedPassword(string clear_pass, string salt)
+        {
+
+            byte[] bytes = UTF8Encoding.UTF8.GetBytes(clear_pass + salt);
+            SHA256Managed sHA256Password = new SHA256Managed();
+
+            byte[] hash = sHA256Password.ComputeHash(bytes);
+
+            return Convert.ToBase64String(hash);
+
+        }
 
     }
+
+    
 }
