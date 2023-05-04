@@ -43,18 +43,31 @@ namespace AnimeTracker
 
             string userName = ktbxUsername.Text;
             string userPassword = ktbxPassword.Text;
+
+            // first need to grab the salt
+            // then remember field size is 64
+            // then I have to re-encrypt the password and compare the two encrypted passwords 
+            query = "SELECT usrSalt FROM USERS WHERE usrEmail = @usrNameParam";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("usrNameParam", userName);
+            string salt = (string) cmd.ExecuteScalar();
+
+            // clean this up, very crude
+            frmSignup hask = new frmSignup();
+            string hashedPasswordToCompare = hask.HashedPassword(userPassword, salt);
+            hask.Dispose();
+
             
             query = $"SELECT usrID, usrName, usrEmail, usrPassword FROM USERS WHERE usrEmail = @usrNameParam AND usrPassword = @passwordParam";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@usrNameParam", userName);
-            cmd.Parameters.AddWithValue("@passwordParam", userPassword);
+            MySqlCommand cmd2 = new MySqlCommand(query, conn);
+            cmd2.Parameters.AddWithValue("@usrNameParam", userName);
+            cmd2.Parameters.AddWithValue("@passwordParam", hashedPasswordToCompare);
             MySqlDataAdapter adpt = new MySqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             adpt.Fill(ds);
 
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = cmd2.ExecuteReader();
             
-
             while (reader.Read())
             {   
                 userID = reader.GetValue(0).ToString();
