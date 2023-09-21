@@ -29,7 +29,7 @@ namespace AnimeTracker
 
             string server = "127.0.0.1";
             string port = "3306";
-            string db = "AnimeTrackingSystem";
+            string db = "GeneralTrackingSystem";
             string username = "root";
             string password = "77P]u7h-Gb-Q'*8*";
             string constring = $"SERVER={server};PORT={port};DATABASE={db};UID={username};PASSWORD={password};";

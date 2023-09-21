@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeTracker", "AnimeTracker\AnimeTracker.csproj", "{5C9BB8FB-19DD-4319-AD03-8D8C376C97CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralTracker", "AnimeTracker\GeneralTracker.csproj", "{5C9BB8FB-19DD-4319-AD03-8D8C376C97CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

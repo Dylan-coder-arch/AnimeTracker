@@ -132,12 +132,12 @@
             // 
             this.klblHeader.Location = new System.Drawing.Point(198, 28);
             this.klblHeader.Name = "klblHeader";
-            this.klblHeader.Size = new System.Drawing.Size(343, 49);
+            this.klblHeader.Size = new System.Drawing.Size(362, 49);
             this.klblHeader.StateCommon.ShortText.Color1 = System.Drawing.Color.DimGray;
             this.klblHeader.StateCommon.ShortText.Color2 = System.Drawing.Color.DimGray;
             this.klblHeader.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klblHeader.TabIndex = 13;
-            this.klblHeader.Values.Text = "Anime Tracking Add:";
+            this.klblHeader.Values.Text = "General Tracking Add:";
             // 
             // uctAdd
             // 

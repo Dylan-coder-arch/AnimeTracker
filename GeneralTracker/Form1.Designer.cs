@@ -163,12 +163,12 @@
             // 
             this.klblTitle.Location = new System.Drawing.Point(301, 12);
             this.klblTitle.Name = "klblTitle";
-            this.klblTitle.Size = new System.Drawing.Size(183, 37);
+            this.klblTitle.Size = new System.Drawing.Size(197, 37);
             this.klblTitle.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
             this.klblTitle.StateCommon.ShortText.Color2 = System.Drawing.Color.Black;
             this.klblTitle.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klblTitle.TabIndex = 2;
-            this.klblTitle.Values.Text = "Anime Tracker";
+            this.klblTitle.Values.Text = "General Tracker";
             // 
             // Form1
             // 
@@ -191,7 +191,7 @@
             | Krypton.Toolkit.PaletteDrawBorders.Left) 
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.StateCommon.Border.Rounding = 25F;
-            this.Text = "Anime Tracker Software";
+            this.Text = "General Tracker Software";
             this.TextExtra = "";
             ((System.ComponentModel.ISupportInitialize)(this.kgrpContainer.Panel)).EndInit();
             this.kgrpContainer.Panel.ResumeLayout(false);
