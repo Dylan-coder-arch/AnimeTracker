@@ -15,7 +15,7 @@ namespace AnimeTracker
     {
         private static string server = "127.0.0.1";
         private static string port = "3306";
-        private static string db = "AnimeTrackingSystem";
+        private static string db = "GeneralTrackingSystem";
         private static string username = "root";
         private static string password = "77P]u7h-Gb-Q'*8*";
         private static string constring = $"SERVER={server};PORT={port};DATABASE={db};UID={username};PASSWORD={password};";

@@ -134,7 +134,7 @@
             this.Controls.Add(this.kbtnSignup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSignup";
-            this.Text = "Anime Tracker Signup";
+            this.Text = "General Tracker Signup";
             this.ResumeLayout(false);
             this.PerformLayout();
 
